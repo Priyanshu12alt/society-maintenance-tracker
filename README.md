@@ -4,12 +4,12 @@ A resident/admin maintenance complaint platform for managing society complaints,
 
 ## Tech Stack
 
-- Frontend: React + Vite
-- Backend: Node.js + Express
-- Database: SQLite
-- Authentication: JWT + bcrypt
-- File uploads: Multer
-- Email: Nodemailer
+- **Frontend:** React + Vite
+- **Backend:** Node.js + Express
+- **Database:** SQLite
+- **Authentication:** JWT + bcrypt
+- **File uploads:** Multer
+- **Email notifications:** Nodemailer
 
 ## Features
 
@@ -22,27 +22,32 @@ A resident/admin maintenance complaint platform for managing society complaints,
 - Upload an optional photo
 - View complaint status
 - View complaint history
-- View notice board
+- View society notices
 
 ### Admin
 
 - Admin dashboard
 - View all complaints
-- Filter complaints by category/status/date
+- Filter complaints by category, status, and date
 - Change complaint status
-- Change priority
-- Add admin notes
+- Change complaint priority
+- Add administrator notes
 - Track complaint history
 - Detect overdue complaints
-- Publish notices
+- Publish society notices
 - Send notification emails
 
-## Local Setup
+## System Architecture
 
-### 1. Install dependencies
-
-From the project root:
-
-```bash
-npm install
-npm run install:all
+```text
+                    React + Vite Frontend
+                              |
+                              | REST API / HTTP
+                              v
+                    Node.js + Express
+                              |
+              +---------------+---------------+
+              |               |               |
+              v               v               v
+           SQLite           Multer        Nodemailer
+          Database       Photo Upload    Email Notifications
